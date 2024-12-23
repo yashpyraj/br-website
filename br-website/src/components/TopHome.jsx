@@ -78,6 +78,7 @@ const TopHome = () => {
 
             <Button
               id="watch-trailer"
+              link="https://discord.gg/saVAkZjgPB"
               title="Join Us"
               leftIcon={<TiLocationArrow />}
               containerClass="bg-yellow-300 flex-center gap-1"

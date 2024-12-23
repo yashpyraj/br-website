@@ -1,9 +1,33 @@
 import clsx from "clsx";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
-const Button = ({ id, title, rightIcon, leftIcon, containerClass }) => {
-  return (
-    <button
+const Button = ({
+  id,
+  title,
+  rightIcon,
+  leftIcon,
+  containerClass,
+  link,
+  navigateTo,
+}) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (navigateTo) {
+      navigate(navigateTo);
+    }
+  };
+
+  const buttonContent = (
+    <motion.button
       id={id}
+      onClick={handleClick}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className={clsx(
         "group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-violet-50 px-7 py-3 text-black",
         containerClass
@@ -21,7 +45,15 @@ const Button = ({ id, title, rightIcon, leftIcon, containerClass }) => {
       </span>
 
       {rightIcon}
-    </button>
+    </motion.button>
+  );
+
+  return link ? (
+    <a href={link} target="_blank" rel="noopener noreferrer">
+      {buttonContent}
+    </a>
+  ) : (
+    buttonContent
   );
 };
 

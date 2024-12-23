@@ -141,6 +141,10 @@ body {
   .contact-clip-path-2 {
     clip-path: polygon(29% 15%, 85% 30%, 50% 100%, 10% 64%);
   }
+
+  .contact-clip-path-3 {
+    clip-path: polygon(0% 0%, 100% 0, 69% 100%, 3% 73%);
+  }
 }
 
 .indicator-line {

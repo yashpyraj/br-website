@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { TiLocationArrow } from "react-icons/ti";
 import { IoBanOutline } from "react-icons/io5";
+import Button from "./Button";
 
 export const BentoTilt = ({ children, className = "" }) => {
   const [transformStyle, setTransformStyle] = useState("");
@@ -44,6 +45,7 @@ export const BentoCard = ({
   title,
   description,
   isComingSoon,
+  isCompleted,
   isRestricted,
   isImage,
 }) => {
@@ -109,6 +111,15 @@ export const BentoCard = ({
               <p className="relative z-20">coming soon</p>
             </div>
           )}
+          {isCompleted && (
+            <Button
+              id="watch-trailer"
+              title="Enter Event Zone"
+              navigateTo="/about"
+              leftIcon={<TiLocationArrow />}
+              containerClass="bg-yellow-300 flex-center gap-1 rounded-full"
+            />
+          )}
 
           {isRestricted && (
             <div
@@ -137,8 +148,21 @@ export const BentoCard = ({
 
 const Features = () => (
   <section className="bg-black pb-52">
-    <div className="container mx-auto px-3 md:px-10">
-      <div className="grid h-[135vh] w-full grid-cols-2 grid-rows-3 gap-7 p-10">
+    <div className="container mx-auto px-3 md:px-10 pt-10">
+      <BentoTilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh] ">
+        <BentoCard
+          src="assets/event.webp"
+          title={
+            <>
+              <b>Events</b>
+            </>
+          }
+          description="Engage in thrilling alliance events designed to test your strategy, teamwork, and competitive spirit. Compete for glory, exclusive rewards, and dominance in the Call of Dragons universe. Stay tuned for exciting challenges and opportunities to showcase your skills."
+          isCompleted
+          isImage
+        />
+      </BentoTilt>
+      <div className="grid h-[135vh] w-full grid-cols-2 grid-rows-3 gap-7 ">
         <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
           <BentoCard
             src="assets/mage.webp"
@@ -192,12 +216,15 @@ const Features = () => (
         </BentoTilt>
 
         <BentoTilt className="bento-tilt_2">
-          <video
+          <BentoCard
             src="assets/cod.mp4"
-            loop
-            muted
-            autoPlay
-            className="size-full object-cover object-center"
+            title={
+              <>
+                <b>mvp of season</b>
+              </>
+            }
+            description="Recognizing MVPs of the season with advanced analytics and performance metrics. Empower players to analyze gameplay, refine strategies, and inspire alliances to push their limits."
+            isComingSoon
           />
         </BentoTilt>
       </div>
