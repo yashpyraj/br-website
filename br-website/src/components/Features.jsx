@@ -47,6 +47,7 @@ export const BentoCard = ({
   isComingSoon,
   isCompleted,
   isRestricted,
+  isCompletedData,
   isImage,
 }) => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
@@ -114,8 +115,8 @@ export const BentoCard = ({
           {isCompleted && (
             <Button
               id="watch-trailer"
-              title="Enter Event Zone"
-              navigateTo="/about"
+              title={isCompletedData.title}
+              navigateTo={isCompletedData.navigateTo}
               leftIcon={<TiLocationArrow />}
               containerClass="bg-yellow-300 flex-center gap-1 rounded-full"
             />
@@ -159,6 +160,10 @@ const Features = () => (
           }
           description="Engage in thrilling alliance events designed to test your strategy, teamwork, and competitive spirit. Compete for glory, exclusive rewards, and dominance in the Call of Dragons universe. Stay tuned for exciting challenges and opportunities to showcase your skills."
           isCompleted
+          isCompletedData={{
+            title: "Enter Event Zone",
+            navigateTo: "/about",
+          }}
           isImage
         />
       </BentoTilt>
@@ -180,14 +185,17 @@ const Features = () => (
         <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
           <BentoCard
             src="videos/feature-3.mp4"
+            isCompleted
+            isCompletedData={{
+              title: "Enter Tools Zone",
+              navigateTo: "/tools",
+            }}
             title={
               <>
                 <b>Alliance Tools</b>
               </>
             }
             description="Exclusive tools and features designed to enhance collaboration, strategy planning, and resource management for alliance mates."
-            isComingSoon
-            isRestricted
           />
         </BentoTilt>
 
@@ -220,11 +228,15 @@ const Features = () => (
             src="assets/cod.mp4"
             title={
               <>
-                <b>mvp of season</b>
+                <b>BR Season</b>
               </>
             }
-            description="Recognizing MVPs of the season with advanced analytics and performance metrics. Empower players to analyze gameplay, refine strategies, and inspire alliances to push their limits."
-            isComingSoon
+            description="Embark on an epic journey through the BR Season—where alliances are forged, battles are fought, and legends are born. Experience thrilling events, strategic challenges, and rewards that define the Call of Dragons universe. Join forces, conquer territories, and etch your name in history."
+            isCompleted
+            isCompletedData={{
+              title: "Chronicles of BR",
+              navigateTo: "/timeline",
+            }}
           />
         </BentoTilt>
       </div>

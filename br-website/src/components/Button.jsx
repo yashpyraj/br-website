@@ -10,6 +10,7 @@ const Button = ({
   containerClass,
   link,
   navigateTo,
+  onClick,
 }) => {
   const navigate = useNavigate();
 
@@ -22,7 +23,7 @@ const Button = ({
   const buttonContent = (
     <motion.button
       id={id}
-      onClick={handleClick}
+      onClick={onClick || handleClick}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       initial={{ opacity: 0, y: 20 }}
