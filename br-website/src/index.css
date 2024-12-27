@@ -200,6 +200,26 @@ body {
   border-radius: 50%;
 }
 
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-original {
+  transition: all 0.3s ease-in-out;
+  display: block;
+}
+
+.image-original:hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto; /* Original width */
+  height: auto; /* Original height */
+  z-index: 10; /* Bring to front */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); /* Optional shadow for focus */
+}
+
 .three-body__dot:nth-child(1) {
   bottom: 5%;
   left: 0;
