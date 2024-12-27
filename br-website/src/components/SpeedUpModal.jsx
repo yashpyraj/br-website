@@ -45,7 +45,7 @@ const SpeedUpModal = ({ title, onClose }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-90 z-50 p-4 font-general ">
-      <div className="bg-black text-white rounded-lg p-6 shadow-lg w-[90%] max-w-lg border-2 border-gray-700 relative">
+      <div className="bg-black text-white rounded-lg p-4 shadow-lg w-[90%] max-w-xl border-2 border-gray-700 relative">
         {/* Clear Button at Top Right */}
         <motion.button
           whileHover={{ scale: 1.05 }}
@@ -53,7 +53,7 @@ const SpeedUpModal = ({ title, onClose }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           onClick={clearAllInputs}
-          className="absolute top-4 right-4 text-black bg-yellow-300 rounded-full hover:bg-yellow-300 text-sm tracking-wide group  z-10 w-fit cursor-pointer   px-7 py-2 overflow-hidden "
+          className="absolute top-4 right-4 text-black bg-yellow-300 rounded-full hover:bg-yellow-300 text-sm tracking-wide group z-10 w-fit cursor-pointer px-6 py-1 overflow-hidden"
         >
           <span className="relative inline-flex overflow-hidden font-general text-xs uppercase">
             <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:translate-y-[-160%] group-hover:skew-y-12">
@@ -65,12 +65,15 @@ const SpeedUpModal = ({ title, onClose }) => {
           </span>
         </motion.button>
 
+        {/* Modal Title */}
         <h2 className="text-2xl font-bold mb-4 tracking-wide">{title}</h2>
         <div className="grid grid-cols-3 gap-4 text-center font-semibold mb-2">
           <p className="text-gray-400 tracking-wider">Duration</p>
           <p className="text-yellow-300 tracking-wider">Type-Specific</p>
           <p className="text-yellow-300 tracking-wider">Universal</p>
         </div>
+
+        {/* Input Fields */}
         {data.map((item, index) => (
           <div
             key={item.label}
@@ -79,7 +82,7 @@ const SpeedUpModal = ({ title, onClose }) => {
             <p className="text-gray-400 tracking-wider">{item.label}</p>
             <input
               type="number"
-              className="bg-gray-800 text-yellow-300 placeholder-gray-500 text-center p-2 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+              className="bg-gray-800 text-yellow-300 placeholder-gray-500 text-center p-1 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-300"
               placeholder="0"
               value={item.typeSpecific || ""}
               onChange={(e) =>
@@ -88,7 +91,7 @@ const SpeedUpModal = ({ title, onClose }) => {
             />
             <input
               type="number"
-              className="bg-gray-800 text-yellow-300 placeholder-gray-500 text-center p-2 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+              className="bg-gray-800 text-yellow-300 placeholder-gray-500 text-center p-1 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-300"
               placeholder="0"
               value={item.universal || ""}
               onChange={(e) =>
@@ -100,37 +103,22 @@ const SpeedUpModal = ({ title, onClose }) => {
 
         {/* Totals Section */}
         <div className="mt-4">
-          <p
-            className="text-lg font-semibold tracking-wider"
-            style={{
-              fontFamily: "Arial, sans-serif",
-            }}
-          >
+          <p className="text-lg font-semibold tracking-wider">
             Total:{" "}
             <span className="text-yellow-300 font-bold">
               {calculateTotal("typeSpecific")}
             </span>
           </p>
-          <p
-            className="text-lg font-semibold tracking-wider mt-2"
-            style={{
-              fontFamily: "'Courier New', monospace",
-            }}
-          >
+          <p className="text-lg font-semibold tracking-wider mt-2">
             +Universal:{" "}
-            <span
-              className="text-yellow-300 font-bold"
-              style={{
-                fontFamily: "'Courier New', monospace",
-              }}
-            >
+            <span className="text-yellow-300 font-bold">
               {calculateTotal("universal")}
             </span>
           </p>
         </div>
 
         {/* Close Button */}
-        <div className="mt-6 flex justify-end">
+        <div className="mt-4 flex justify-end">
           <Button
             id="watch-trailer"
             onClick={onClose}

@@ -231,7 +231,7 @@ const Features = () => (
                 <b>BR Season</b>
               </>
             }
-            description="Embark on an epic journey through the BR Season—where alliances are forged, battles are fought, and legends are born. Experience thrilling events, strategic challenges, and rewards that define the Call of Dragons universe. Join forces, conquer territories, and etch your name in history."
+            description="Embark on an epic journey through the BR Season—where alliances are forged, battles are fought, and legends are born. Experience thrilling events, strategic challenges."
             isCompleted
             isCompletedData={{
               title: "Chronicles of BR",

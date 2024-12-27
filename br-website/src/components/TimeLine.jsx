@@ -6,6 +6,7 @@ export const Timeline = ({ data }) => {
   const ref = useRef(null);
   const containerRef = useRef(null);
   const [height, setHeight] = useState(0);
+  const [hovering, setHovering] = useState(false);
 
   useEffect(() => {
     if (ref.current) {
