@@ -2,13 +2,17 @@ import clsx from "clsx";
 import gsap from "gsap";
 import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
-import { TiLocationArrow } from "react-icons/ti";
+import { useNavigate } from "react-router-dom";
 
-import Button from "./Button";
-
-const navItems = ["TOOLS"];
+const navItems = [
+  { title: "TOOLS", navigateTo: "/tools" },
+  { title: "BR", navigateTo: "/timeline" },
+  { title: "Events", navigateTo: "/about" },
+];
 
 const NavBar = () => {
+  const navigate = useNavigate();
+
   // State for toggling audio and visual indicator
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [isIndicatorActive, setIsIndicatorActive] = useState(false);
@@ -20,6 +24,12 @@ const NavBar = () => {
   const { y: currentScrollY } = useWindowScroll();
   const [isNavVisible, setIsNavVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const handleClick = (navigateTo) => {
+    if (navigateTo) {
+      navigate(navigateTo);
+    }
+  };
 
   // Toggle audio and visual indicator
   const toggleAudioIndicator = () => {
@@ -76,13 +86,13 @@ const NavBar = () => {
           <div className="flex h-full items-center">
             <div className="hidden md:block">
               {navItems.map((item, index) => (
-                <a
+                <button
                   key={index}
-                  href={`#${item.toLowerCase()}`}
+                  onClick={() => handleClick(item.navigateTo)}
                   className="nav-hover-btn"
                 >
-                  {item}
-                </a>
+                  {item.title}
+                </button>
               ))}
             </div>
 
