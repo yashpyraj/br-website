@@ -66,11 +66,11 @@ const FloatingImage = () => {
   }, []);
 
   return (
-    <div id="story" className="min-h-dvh w-screen bg-black text-blue-50">
+    <div id="story" className="min-h-0.5 w-screen bg-black text-blue-50">
       <div className="flex size-full flex-col items-center py-10 pb-24">
         <div className="relative size-full">
           <AnimatedTitle
-            title="the st<b>o</b>ry of <br /> a hidden real<b>m</b>"
+            title="the st<b>o</b>ry of <br /> br event<b>s</b>"
             containerClass="mt-5 pointer-events-none mix-blend-difference relative z-10"
           />
 
@@ -79,7 +79,7 @@ const FloatingImage = () => {
               <div className="story-img-content">
                 <img
                   ref={frameRef}
-                  src="/img/entrance.webp"
+                  src="assets/kella.jpg"
                   alt="entrance.webp"
                   className="object-contain will-change-transform"
                 />

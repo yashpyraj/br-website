@@ -1,6 +1,7 @@
 import React from "react";
 import Story from "../components/Story";
 import HeaderLockScroll from "../components/HeaderLockScroll";
+import TournamentBracket from "../components/TournamentBracket";
 import { motion, useSpring, useScroll } from "framer-motion";
 
 const AboutUs = () => {
@@ -25,7 +26,8 @@ const AboutUs = () => {
         }}
       />
       <Story />
-      <HeaderLockScroll />
+      <TournamentBracket />
+      {/* <HeaderLockScroll /> */}
     </div>
   );
 };
